@@ -39,7 +39,7 @@
                       </div>
                       <div class="col-lg-4" >
                         <div class="" style="margin-left: 30%; margin-right:10%; margin-top:10%;margin-bottom:10%; border: 1px solid; width: 160px; height: 200px">
-                            <img id="preview" src="" alt="your image" >
+                            <img height="200px" width="160px" id="preview" src="" alt="your image" >
                         </div>
                         <div class="" style="margin-left: 32%;">
                             <input type="file" name="picture" id="picture">
@@ -69,13 +69,16 @@
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    $('#blah').attr('src', e.target.result);
+                    $('#preview').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        $("#preview").change(function() {
-            readURL(this);
+        $(function(){
+            $("#picture").change(function() {
+                console.log('Hello');
+                readURL(this);
+            });
         });
     </script>
   @endsection
